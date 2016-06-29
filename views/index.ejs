@@ -1,11 +1,58 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<% include templates/header.ejs %>
+
+<h1><%= title %></h1>
+<p>Welcome to <%= title %></p>
+<p>I am awesome</p>
+<!--embedded javascript variable with equal sign-->
+<p><%= name %> is awesome</p>
+<p><%= points %></p>
+<!--unordered list using plane java script-->
+<ul>
+
+    <% for(var i = 0 ;i < 5 ;i++){ %>
+    <li><%= name %> </li>
+    <% } %>
+</ul>
+
+<h3><%= videodata.categoryName %></h3>
+<ul>
+
+    <% videodata.categories.forEach(function (item) { %>
+    <li>  <%= item.categoryName %></li>
+    <% }); %>
+    <%                                           %>
+
+</ul>
+
+<!--another way to parse json data-->
+
+
+<h3><%= videodata1.categoryName %></h3>
+<ul>
+
+    <% videodata1.categories.forEach(function (item) { %>
+    <li>  <%= item.categoryName %></li>
+    <% }); %>
+
+
+</ul>
+
+<h3><%= videodata1.categoryName %></h3>
+<ul>
+
+    <% videodata1.categories.forEach(function (item) { %>
+ <li>  <a href="https://www.thenewboston.com/videos_food.php?cat=<%=item.categoryID%>"><%= item.categoryName %></a> </li>
+    <% }); %>
+
+
+</ul>
+
+</body>
 </html>
